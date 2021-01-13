@@ -1,0 +1,110 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+}
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  height: 300px;
+  width: 271px;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0px 12px 20px rgba(113, 114, 151, 0.08);
+  border-radius: 2px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 15px;
+  margin: 10px;
+  padding: 5px;
+}
+/* .card-container {
+  background: #ffffff;
+  box-shadow: 0px 12px 20px rgba(113, 114, 151, 0.08);
+  border-radius: 2px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  text-align: center;
+  cursor: pointer;
+} */
+
+.card-container p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.product-title h5 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 127.3%;
+  /* or 18px */
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  font-family: Roboto, sans-serif;
+  padding: 14px 18px 10px;
+  font-style: normal;
+  line-height: 1.5;
+  color: #363e5c;
+  height: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.addBtn {
+  border: 1px solid #39b54a;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 36px;
+  width: 80px;
+}
+.discount-container {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.price-add-container {
+  display: flex;
+  position: relative;
+  padding: 0 18px;
+  width: 100%;
+  margin: 0;
+  padding: 5px;
+}
+
+.price-disc-container h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+
+  /* Orange/Secondary */
+
+  color: #ed8733;
+}
+.card-img {
+  width: 271px;
+  height: 184px;
+  vertical-align: middle;
+  border-style: none;
+}
