@@ -1,3 +1,9 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 .filter-container {
   width: 270px;
   height: auto;
@@ -53,26 +59,6 @@
   margin-right: 15.58px;
 }
 
-.checkmarks {
-  display: block;
-  position: relative;
-  height: 18px;
-  width: 18px;
-  background-color: #39b54a;
-  border-radius: 3px;
-  transition: background-color 0.4s;
-}
-
-label {
-  margin-bottom: 0.5rem;
-  cursor: default;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
-
 label {
   font-family: Roboto;
   font-style: normal;
@@ -81,7 +67,24 @@ label {
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0px;
-  text-align: left;
   line-height: 138.2%;
   color: #333333;
+  margin-bottom: 0.5rem;
+  cursor: default;
+}
+input[type="checkbox"]:checked ~ .checkmarks:after {
+  background-color: #39b54a;
+}
+.checkmarks:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 10px;
+  border-left: 1.5px solid #fff;
+  border-bottom: 1.5px solid #fff;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-40deg) scale(2);
+  opacity: 0;
+  transition: all 0.4s;
 }

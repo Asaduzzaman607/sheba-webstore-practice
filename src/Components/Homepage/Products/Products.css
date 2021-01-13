@@ -11,25 +11,25 @@ body {
   color: #212529;
 }
 .product-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
   background-clip: border-box;
-  height: 300px;
-  width: 271px;
+  height: 330px;
+  width: 100%;
+
+  object-fit: cover;
+  border-radius: 0px;
   border-radius: 2px;
   background: #ffffff;
   box-shadow: 0px 12px 20px rgba(113, 114, 151, 0.08);
   border-radius: 2px;
   -o-object-fit: cover;
   object-fit: cover;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   margin-right: 15px;
   margin: 10px;
   padding: 5px;
+  margin-right: 15px;
+  overflow: hidden;
 }
 /* .card-container {
   background: #ffffff;
@@ -40,13 +40,6 @@ body {
   text-align: center;
   cursor: pointer;
 } */
-
-.card-container p {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
 
 .product-title h5 {
   font-weight: 500;
@@ -69,10 +62,19 @@ body {
 
 .addBtn {
   border: 1px solid #39b54a;
-  box-sizing: border-box;
-  border-radius: 4px;
   height: 36px;
   width: 80px;
+  position: absolute;
+  right: 6%;
+  top: 25%;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 11px 12px 8px;
+  margin-left: 65px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .discount-container {
   font-family: Roboto, sans-serif;

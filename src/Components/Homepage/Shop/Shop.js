@@ -30,7 +30,7 @@ function Shop() {
     }else{
       let allShow = [];
       selected.forEach(sel => {
-        allShow = [...allShow, ...data.products.filter(pd => pd.category_id == sel)]
+        allShow = [...allShow, ...data.products.filter(pd => pd.category_id === sel)]
       })
       setShow(allShow);
     }
@@ -47,7 +47,7 @@ function Shop() {
 
 function selectAll() {
   const al = document.querySelector("#select-all");
-  if(al.checked == true){
+  if(al.checked === true){
     const inputs = document.querySelectorAll('input');
     inputs.forEach(i => i.checked = false);
     al.checked = true;
@@ -99,7 +99,7 @@ function handleShort(e) {
         <label htmlFor="dHighToLow">Discount - High to Low</label>        
       </div>
      <div className="row">
-         <div className="col-md-3">
+         <div className="col-lg-3 col-md-3">
          <div className="filter-container">
          <ul style={{listStyle: "none"}} >
              <div className="d-flex justify-content-between filtering-reset-option">
