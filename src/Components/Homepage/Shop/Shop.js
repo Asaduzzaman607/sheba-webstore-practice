@@ -10,7 +10,7 @@ function Shop() {
 
   // for loading data
   useEffect(() =>{  
-    fetch("https://api.dev-sheba.xyz/v2/partners/37732/pos/products?is_shop=1")
+    fetch("https://api.dev-sheba.xyz/v2/partners/38371/pos/products?is_shop=1")
     .then(data => data.json())
     .then(result => {
       const newD = {products: result.products, categories: result.categories};
@@ -24,13 +24,14 @@ function Shop() {
   // for filtering products
 
   useEffect(() =>{
+    
     if(selected[0] === 'all'){
       setShow(data.products);
       document.querySelector("#select-all").checked = true;
     }else{
       let allShow = [];
       selected.forEach(sel => {
-        allShow = [...allShow, ...data.products.filter(pd => pd.category_id === sel)]
+        allShow = [...allShow, ...data.products.filter(pd => pd.category_id === parseInt(sel))]
       })
       setShow(allShow);
     }
@@ -38,16 +39,17 @@ function Shop() {
 
   function handleSearch() {
     const inputs = document.querySelectorAll('input');    
-    const ni = []
+    const newInput = []
     inputs.forEach(i =>{
-      i.checked && ni.push(i.value);
+      i.checked && newInput.push(i.value);
     })
-    setSelected(ni);  
+    setSelected(newInput);
+    console.log(newInput);
   }
 
 function selectAll() {
   const al = document.querySelector("#select-all");
-  if(al.checked === true){
+  if(al.checked == true){
     const inputs = document.querySelectorAll('input');
     inputs.forEach(i => i.checked = false);
     al.checked = true;
@@ -81,6 +83,10 @@ function handleShort(e) {
   setShow(newShow);
 }
 
+
+let totalQuantity= data.categories.reduce((total, category)=> total + category.total_products, 0);
+  console.log(totalQuantity);
+
   return (
     <div className='container'>
       <button onClick={() => setToggle(!toggle)} className="shortBtn">Short</button>
@@ -107,19 +113,18 @@ function handleShort(e) {
                  <button onClick={handleReset} className="reset-btn">Reset</button>
 
              </div>
-        <li >            
-            <label>
-            <input onClick={selectAll} type="checkbox" className='checkmarks' name="all" id="select-all"/>
-              All
+        <li className="category-li">            
+            <input onClick={selectAll} type="checkbox" className='checkmarks' value="all" name="all" id="select-all"/>
+            <label for="select-all">
             </label>
+            <p className='category-list'><span>All</span> <span>{totalQuantity}</span></p>
         </li>
         {
           data.categories.map(cate => 
-          <li key={cate.id}>            
-              <input className='checkmarks' type="checkbox" value={cate.id} id={cate.id}/>
-              <label className='category-name' htmlFor={cate.id} onClick={() => document.querySelector("#select-all").checked = false}>
-              {cate.name}
-              </label>
+          <li key={cate.id} className="category-li">            
+              <input className='checkmarks' type="checkbox" value={cate.id} id={cate.id} onClick={() => document.querySelector("#select-all").checked = false}/>
+              <label className='category-name' htmlFor={cate.id} ></label>
+              <p className='category-list'><span>{cate.name}</span> <span>{cate.total_products}</span></p>
           </li>)
         }
       </ul>
@@ -128,7 +133,7 @@ function handleShort(e) {
       </div>
          </div>
          </div>
-         <div className="col-md-8 mr-3">
+         <div className="col-md-9">
             <div className="row">
                 
                 {
