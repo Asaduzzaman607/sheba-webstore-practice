@@ -18,8 +18,9 @@
 	text-transform: capitalize;
 	color: #fff;
 	border: none;
-	margin-top: 34px;
-	margin-bottom: 5px;
+	margin: 10px 38px;
+	position: relative;
+	right: 61px;
 }
 
 .filtering-reset-option h3 {
@@ -52,11 +53,61 @@
 	height: auto;
 	background: #f4f4f7;
 	border-radius: 4px;
-	padding: 16px;
-	margin-bottom: 20%;
+	padding: 20px 40px;
+	margin-bottom: 20px;
 }
-.filter-container li {
-	margin-right: 15.58px;
+.group {
+	padding: 4px 8px;
+	margin: 4px;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+label {
+	position: relative;
+	background-color: #fff;
+}
+
+label::before {
+	content: "";
+	border: solid #111;
+	border-width: 0 2px 2px 0;
+	background-color: #39b54a;
+	background-position: center;
+	background-size: contain;
+	width: 5px;
+	height: 10px;
+	position: absolute;
+	left: -36px;
+	top: 4px;
+	transform: scale(0) rotateZ(180deg);
+	transition: all 0.2s;
+}
+
+input[type="checkbox"]:checked + label::before {
+	transform: scale(1) rotateZ(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	z-index: 99;
+	left: -35px;
+	top: 3px;
+	opacity: 1;
+}
+input[type="checkbox"]:checked + label::after {
+	background: #39b54a;
+}
+
+label::after {
+	content: "";
+	border: 2px solid #fff;
+	background-color: #fff;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: -42px;
+	top: 1px;
 }
 
 .category-list {
@@ -67,47 +118,10 @@
 	letter-spacing: 0px;
 	line-height: 138.2%;
 	color: #333333;
+	margin: 0 10px 10px 10px;
 	cursor: default;
-	max-width: 180px;
-	margin: 0 10px 10px 30px;
+	max-width: 93px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.checkmark {
-	content: "";
-	border-left: 1.5px solid #fff;
-	border-bottom: 1.5px solid #fff;
-	display: block;
-	opacity: 1;
-	height: 18px;
-	width: 18px;
-	background-color: #fff;
-	border-radius: 3px;
-	transition: all 0.4s;
-}
-
-input[type="checkbox"]:checked {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 2px;
-	left: 9px;
-	width: 6px;
-	height: 14px;
-	background-color: #39b54a;
-}
-.checkmark:after {
-	content: "";
-	position: absolute;
-	height: 8px;
-	width: 3px;
-	border: solid #111;
-	border-width: 0 2px 2px 0;
-	top: 16%;
-	left: 14%;
-	transform: translate(-50%, -50%) rotate(45deg) scale(2);
-	opacity: 1;
-	transition: all 0.4s;
 }

@@ -106,27 +106,27 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
      <div className="row">
          <div className="col-lg-3 col-md-3 col-sm-12">
          <div className="filter-container">
-         <ul style={{listStyle: "none"}} >
+        
              <div className="d-flex justify-content-between filtering-reset-option">
                  <h3>Filtering</h3>
                  <button onClick={handleReset} className="reset-btn">Reset</button>
 
              </div>
-        <li className="category-list d-flex">            
-            <input  onClick={selectAll} type="checkbox" hidden  value="all" name="all" id="select-all"/>
-            <label className="checkmark"  for="select-all">
+        <div className="group d-flex">            
+            <input  onClick={selectAll} type="checkbox"  value="all" name="all" id="select-all"/>
+            <label className="checkmark"  htmlFor="select-all">
             </label>
             <p className='category-list'><span>All</span> <span>{totalQuantity}</span></p>
-        </li>
+        </div>
         {
           data.categories.map(cate => 
-          <li key={cate.id} className="category-li d-flex">            
-              <input   type="checkbox" value={cate.id} id={cate.id} hidden onClick={() => document.querySelector("#select-all").checked = false}/>
+          <div key={cate.id} className="group d-flex">            
+              <input type="checkbox" value={cate.id} id={cate.id}  onClick={() => document.querySelector("#select-all").checked = false}/>
               <label className='checkmark category-name' htmlFor={cate.id} ></label>
               <p className='category-list'><span>{cate.name}</span> <span>{cate.total_products}</span></p>
-          </li>)
+          </div>)
         }
-      </ul>
+     
       <div>
       <button onClick={handleSearch} className='search-btn'>Search</button>
       </div>
