@@ -66,7 +66,7 @@ function handleReset() {
   setSelected(["all"]);
 }
 
-function handleShort(e) {
+function handleSort(e) {
   const newShow = [...show];
   if(e.target.id === "pLowToHigh"){
     newShow.sort((a, b) => a.original_price - b.original_price);
@@ -89,18 +89,18 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
 
   return (
     <div className='container'>
-      <button onClick={() => setToggle(!toggle)} className="shortBtn">Short</button>
-      <div style={{visibility: toggle ? "visible" : "hidden"}} className="shortOption">
+      <button onClick={() => setToggle(!toggle)} className="SortBtn">Sort</button>
+      <div style={{visibility: toggle ? "visible" : "hidden"}} className="SortOption">
 
-        <input  onClick={(e) => handleShort(e)} name="short" id="pLowToHigh" type="radio"/>
+        <input  onClick={(e) => handleSort(e)} name="sort" id="pLowToHigh" type="radio"/>
         <label htmlFor="pLowToHigh">Price - Low to High</label>
-        <input onClick={(e) => handleShort(e)} name="short" id="pHighToLow" type="radio"/>
+        <input onClick={(e) => handleSort(e)} name="sort" id="pHighToLow" type="radio"/>
         <label htmlFor="pHighToLow">Price - High to Low</label>
 
-        <input onClick={(e) => handleShort(e)} name="short" id="dLowToHigh" type="radio"/>
+        <input onClick={(e) => handleSort(e)} name="sort" id="dLowToHigh" type="radio"/>
         <label htmlFor="dLowToHigh">Discount - Low to High</label>
 
-        <input onClick={(e) => handleShort(e)} name="short" id="dHighToLow" type="radio"/>
+        <input onClick={(e) => handleSort(e)} name="sort" id="dHighToLow" type="radio"/>
         <label htmlFor="dHighToLow">Discount - High to Low</label>        
       </div>
      <div className="row">
@@ -108,7 +108,7 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
          <div className="filter-container">
         
              <div className="d-flex justify-content-between filtering-reset-option">
-                 <h3>Filtering</h3>
+                 <p className="filtering-title">Filtering</p>
                  <button onClick={handleReset} className="reset-btn">Reset</button>
 
              </div>
@@ -116,14 +116,14 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
             <input  onClick={selectAll} type="checkbox"  value="all" name="all" id="select-all"/>
             <label className="checkmark"  htmlFor="select-all">
             </label>
-            <p className='category-list'><span>All</span> <span>{totalQuantity}</span></p>
+            <p className='category-list'>All </p><p className='product-quantity-only '>{totalQuantity}</p>
         </div>
         {
           data.categories.map(cate => 
           <div key={cate.id} className="group d-flex">            
               <input type="checkbox" value={cate.id} id={cate.id}  onClick={() => document.querySelector("#select-all").checked = false}/>
               <label className='checkmark category-name' htmlFor={cate.id} ></label>
-              <p className='category-list'><span>{cate.name}</span> <span>{cate.total_products}</span></p>
+              <p className='category-list'>{cate.name}</p> <p className='product-quantity'>{cate.total_products}</p>
           </div>)
         }
      

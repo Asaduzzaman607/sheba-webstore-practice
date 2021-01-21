@@ -67,7 +67,7 @@ input[type="checkbox"] {
 
 label {
 	position: relative;
-	background-color: #fff;
+	background-color: #ffff;
 }
 
 label::before {
@@ -113,15 +113,43 @@ label::after {
 .category-list {
 	font-family: Roboto, sans-serif;
 	font-style: normal;
-	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 0px;
 	line-height: 138.2%;
 	color: #333333;
 	margin: 0 10px 10px 10px;
 	cursor: default;
-	max-width: 93px;
+	max-width: 115px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+/* .filter-header {
+	position: relative;
+	right: 27px;
+} */
+
+.filtering-title {
+	font-family: Open Sans, sans-serif;
+	font-style: normal;
+	line-height: 138.2%;
+	font-weight: 700;
+	font-size: 18px;
+	color: #282542;
+	padding: 0 !important;
+	margin-bottom: 16px;
+}
+.product-quantity {
+	position: absolute;
+	left: 82%;
+	float: right;
+}
+.product-quantity-only {
+	position: relative;
+	left: 73%;
+	float: right;
+}
+
+.filter-container .group .col-md-8 {
+	padding: 0;
 }

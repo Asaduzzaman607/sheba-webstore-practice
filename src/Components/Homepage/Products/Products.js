@@ -4,8 +4,18 @@ import './Products.css';
 
 const Products = (props) => {
 
-    const {name, image_gallery, original_price, discount_percentage} = props.data
+    const {name, image_gallery, original_price,vat_percentage,discount_percentage, discounted_amount} = props.data
     const imgUrl = image_gallery[0]?.image_link || "https://s3.ap-south-1.amazonaws.com/cdn-shebadev/images/pos/services/thumbs/default.jpg";
+    
+
+    let vat = ((original_price * vat_percentage)/100).toFixed(1)
+    let total_original_price = parseFloat((original_price + vat || 0))
+    let total = parseFloat(total_original_price)
+    console.log(typeof total);
+
+    let discounted= parseFloat((discounted_amount || original_price)+ vat);
+   let discounted_price = (discounted.toFixed(1))
+
     return (
         <div className="col-md-4 col-sm-6">
             <div className="product-card p-0">
@@ -21,10 +31,18 @@ const Products = (props) => {
         
                     <div className="d-flex price-add-container justify-content-between">
                         <div className='price-disc-container'>
-                            <h4 className="discount-container">৳ {original_price}</h4>
                             {
-                                <h5 className="original-price">৳ {original_price}</h5>
-                            }
+                                discount_percentage? 
+                                <>
+                                 <h4 className="discount-container">৳ {discounted_price}</h4>
+                                <h5 className="original-price">৳ {total}</h5>
+                                </>
+                           
+                            :
+                           <>
+                                <h5 className="original-price-only">৳ {total}</h5>
+                                </>
+                           }
                         </div>
                         {
                             true ?

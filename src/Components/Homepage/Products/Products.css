@@ -1,124 +1,140 @@
 *,
 :after,
 :before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 body {
-  font-family: Roboto, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
+	font-family: Roboto, sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
 }
 .product-card {
-  background-clip: border-box;
-  height: auto;
-  width: 271px;
-  border-radius: 2px;
-  margin-bottom: 32px;
-  padding-bottom: 25px;
-  background: #ffffff;
-  box-shadow: 0px 12px 20px rgba(113, 114, 151, 0.08);
-  object-fit: cover;
-  text-align: left;
-  cursor: pointer;
+	background-clip: border-box;
+	max-height: 300px;
+	width: 271px;
+	border-radius: 2px;
+	margin-bottom: 32px;
+	padding-bottom: 25px;
+	background: #ffffff;
+	box-shadow: 0px 12px 20px rgba(113, 114, 151, 0.08);
+	object-fit: cover;
+	text-align: left;
+	cursor: pointer;
 }
 
 .product-title h5 {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 127.3%;
-  /* or 18px */
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  font-family: Roboto, sans-serif;
-  padding: 14px 18px 10px;
-  font-style: normal;
-  line-height: 1.5;
-  color: #363e5c;
-  height: 56px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 127.3%;
+	/* or 18px */
+	text-align: left;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	font-family: Roboto, sans-serif;
+	padding: 14px 18px 10px;
+	font-style: normal;
+	line-height: 1.5;
+	color: #363e5c;
+	height: 56px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
 }
 
 .addBtn {
-  border: 1px solid #39b54a;
-  position: relative;
-  left: -26.79%;
-  right: 6.64%;
-  height: 36px;
-  width: 80px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-align: center;
-  background-color: #fff;
-  font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
+	border: 1px solid #39b54a;
+	position: relative;
+	left: -26.79%;
+	right: 6.64%;
+	height: 36px;
+	width: 80px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	text-align: center;
+	background-color: #fff;
+	font-size: 16px;
+	line-height: 19px;
+	/* identical to box height */
 
-  color: #39b54a;
+	color: #39b54a;
 }
 
 .price-add-container {
-  display: flex;
-  position: relative;
-  padding: 0 18px;
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 5px;
+	display: flex;
+	position: relative;
+	bottom: 12px;
+	padding: 10px 5px;
+	width: 100%;
+	margin-bottom: 14px;
 }
 
 .discount-container {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
+	font-family: "Roboto", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+	display: flex;
+	align-items: center;
 
-  /* Orange/Secondary */
+	/* Orange/Secondary */
 
-  color: #ed8733;
-  border-radius: 5px;
-  padding: 0 10px;
+	color: #ed8733;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+
+.original-price-only {
+	font-family: "Roboto", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+	display: flex;
+	align-items: center;
+
+	/* Orange/Secondary */
+
+	color: #ed8733;
+	border-radius: 5px;
+	padding: 0 10px;
 }
 .product-img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  width: 271px;
-  height: 184px;
-  object-fit: cover;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	width: 271px;
+	height: 184px;
+	object-fit: cover;
 }
 .discount-percent {
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 15px;
-  display: flex;
-  align-items: center;
-  background: #ed8733;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 13px;
-  line-height: 15px;
-  color: #ffffff;
-  position: absolute;
-  top: 16px;
-  left: 30px;
+	font-family: Roboto, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	background: #ed8733;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 13px;
+	line-height: 15px;
+	color: #ffffff;
+	position: absolute;
+	top: 16px;
+	left: 30px;
 }
 
 .original-price {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
-  text-decoration-line: line-through;
-  color: #c8c8c8;
-  padding: 0 12px;
+	font-family: "Roboto", sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	/* identical to box height */
+	text-decoration-line: line-through;
+	color: #c8c8c8;
+	padding: 0 12px;
 }
