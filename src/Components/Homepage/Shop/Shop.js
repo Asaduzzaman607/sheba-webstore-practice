@@ -3,10 +3,14 @@ import Products from '../Products/Products';
 import './Shop.css';
 
 function Shop() {
+
+  // needed states
   const [data, setData] = useState({categories: [], products: []});
   const [show, setShow] = useState([]);
   const [selected, setSelected] = useState([]);
   const [toggle, setToggle] = useState(false);
+
+  
 
   // for loading data
   useEffect(() =>{  
@@ -17,15 +21,18 @@ function Shop() {
       setData(newD)
       setShow(result.products);
       document.querySelector("#select-all").checked = true;
+      
     })
   }, [])
+
+  const {discount_percentage} = data.products
 
 
   // for filtering products
 
   useEffect(() =>{
     
-    if(selected[0] === 'all'){
+    if(selected[0] === 'all' || ' '){
       setShow(data.products);
       document.querySelector("#select-all").checked = true;
     }else{
@@ -44,7 +51,6 @@ function Shop() {
       i.checked && newInput.push(i.value);
     })
     setSelected(newInput);
-    console.log(newInput);
   }
 
 function selectAll() {
@@ -75,19 +81,19 @@ function handleSort(e) {
     newShow.sort((a, b) => b.original_price - a.original_price);
   }
   else if(e.target.id === "dLowToHigh"){
-    newShow.sort((a, b) => a.original_price - b.original_price);
+    discount_percentage>0 && newShow.sort((a, b) => a.discount_percentage - b.discount_percentage);
   }
   else if(e.target.id === "dHighToLow"){
-    newShow.sort((a, b) => b.original_price - a.original_price);
+    newShow.sort((a, b) => b.discount_percentage - a.discount_percentage);
   }
   setShow(newShow);
 }
 
-
+// calculating total quantity using reduce function
 let totalQuantity= data.categories.reduce((total, category)=> total + category.total_products, 0);
-  console.log(totalQuantity);
 
   return (
+    
     <div className='container'>
       <button onClick={() => setToggle(!toggle)} className="SortBtn">Sort</button>
       <div style={{visibility: toggle ? "visible" : "hidden"}} className="SortOption">
@@ -116,7 +122,7 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
             <input  onClick={selectAll} type="checkbox"  value="all" name="all" id="select-all"/>
             <label className="checkmark"  htmlFor="select-all">
             </label>
-            <p className='category-list'>All </p><p className='product-quantity-only '>{totalQuantity}</p>
+            <p className='category-list'>All Categories</p><p className='product-quantity-only '>{totalQuantity}</p>
         </div>
         {
           data.categories.map(cate => 
@@ -128,7 +134,7 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
         }
      
       <div>
-      <button onClick={handleSearch} className='search-btn'>Search</button>
+      <button onClick={handleSearch} className='search-btn'>Search Now</button>
       </div>
          </div>
          </div>
@@ -144,7 +150,8 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
      </div>
      
     </div>
-  );
+  )
+  
 }
 
 export default Shop;
