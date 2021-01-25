@@ -26,7 +26,78 @@
 .sortOption {
 	float: right;
 }
+.dropdown-style input[type="radio"] {
+	display: none;
+}
+.dropdown-style label {
+	position: relative;
+	display: inline-block;
+	padding: 0 3px 3px 30px;
+	cursor: pointer;
+	color: #666;
+	font-weight: 400;
+	font-size: 12px;
+}
+.dropdown-style label::before {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	margin: -12px 5px 0 0;
+	background: #fff;
+	border: 2px solid #61b15a;
+	border-radius: 100%;
+}
+.dropdown-style input[type="radio"]:checked + label::after {
+	position: absolute;
+	content: "";
+	top: 51.2%;
+	left: 4.6px;
+	width: 12px;
+	height: 12px;
+	margin-top: -8px;
+	background: #61b15a;
+	border-radius: 100%;
+}
 
+/* input[type="radio"] {
+	display: none;
+}
+input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+input[type="radio"] + label {
+	color: #666;
+	font-weight: 400;
+	font-size: 12px;
+}
+input[type="radio"]:checked + label::before {
+	content: " ";
+	display: inline-block;
+	position: relative;
+	top: 5px;
+	margin: 0 5px 0 0;
+	width: 20px;
+	height: 20px;
+	border-radius: 11px;
+	border: 2px solid #61b15a;
+	background-color: transparent;
+}
+
+input[type="radio"]:checked + label::after {
+	border-radius: 11px;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 14.1px;
+	left: 10.1px;
+	content: " ";
+	display: block;
+	background: #61b15a;
+} */
 .dropdown-list {
 	position: absolute !important;
 	width: 195px;
@@ -54,7 +125,7 @@
 	box-sizing: border-box;
 	border-radius: 5px;
 	text-align: center;
-	padding-top: 7px;
+	padding: 8px 0px 8px 0px;
 	color: #111;
 	text-decoration: none;
 }
@@ -67,8 +138,10 @@
 	border: solid black;
 	border-width: 0 3px 3px 0;
 	display: inline-block;
-	margin: 0 18px 0 24px;
 	padding: 3px;
+	position: relative;
+	left: 8px;
+	top: -4px;
 }
 .down {
 	transform: rotate(45deg);
@@ -161,7 +234,7 @@ input[type="checkbox"] {
 	transition: all 0.2s;
 }
 
-input[type="checkbox"]:checked + .checkmark::before {
+input[type="checkbox"]:checked + .checkmark:before {
 	transform: scale(1) rotateZ(45deg);
 	border: solid #fff;
 	border-width: 0 2px 2px 0;
@@ -170,7 +243,7 @@ input[type="checkbox"]:checked + .checkmark::before {
 	top: 3px;
 	opacity: 1;
 }
-input[type="checkbox"]:checked + .checkmark::after {
+input[type="checkbox"]:checked + .checkmark:after {
 	background: #39b54a;
 }
 

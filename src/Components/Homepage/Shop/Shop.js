@@ -107,14 +107,14 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
       </div>
      
       <ul style={{visibility: toggle ? "visible" : "hidden"}} className="sortOption dropdown-list dropdown-style">
-        <li><input  onClick={(e) => handleSort(e)} name="sort" id="pLowToHigh" type="radio"/>
-        <label htmlFor="pLowToHigh" className="custom-radioBtn">Price - Low to High</label></li>
-        <li> <input onClick={(e) => handleSort(e)} name="sort" id="pHighToLow" type="radio"/>
-        <label htmlFor="pHighToLow">Price - High to Low</label></li>
-        <li><input onClick={(e) => handleSort(e)} name="sort" id="dLowToHigh" type="radio"/>
-        <label htmlFor="dLowToHigh">Discount - Low to High</label></li>
-        <li><input onClick={(e) => handleSort(e)} name="sort" id="dHighToLow" type="radio"/>
-        <label htmlFor="dHighToLow">Discount - High to Low</label>  </li>      
+        <input  onClick={(e) => handleSort(e)} name="sort" id="pLowToHigh" type="radio"/>
+        <label htmlFor="pLowToHigh" className="custom-radioBtn">Price - Low to High</label>
+        <input onClick={(e) => handleSort(e)} name="sort" id="pHighToLow" type="radio"/>
+        <label htmlFor="pHighToLow">Price - High to Low</label>
+        <input onClick={(e) => handleSort(e)} name="sort" id="dLowToHigh" type="radio"/>
+        <label htmlFor="dLowToHigh">Discount - Low to High</label>
+        <input onClick={(e) => handleSort(e)} name="sort" id="dHighToLow" type="radio"/>
+        <label htmlFor="dHighToLow">Discount - High to Low</label>   
       </ul>
       </div>
      <div className="row">
