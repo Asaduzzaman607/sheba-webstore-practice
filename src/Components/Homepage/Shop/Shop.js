@@ -32,10 +32,15 @@ function Shop() {
 
   useEffect(() =>{
     
-    if(selected[0] === 'all' || ' '){
+    if(selected[0] === 'all' || ''){
       setShow(data.products);
       document.querySelector("#select-all").checked = true;
-    }else{
+    }
+    else if  (selected[0] === ''){
+     
+        setShow(data.products);
+    }
+    else{
       let allShow = [];
       selected.forEach(sel => {
         allShow = [...allShow, ...data.products.filter(pd => pd.category_id === parseInt(sel))]
@@ -81,10 +86,10 @@ function handleSort(e) {
     newShow.sort((a, b) => b.original_price - a.original_price);
   }
   else if(e.target.id === "dLowToHigh"){
-    discount_percentage>0 && newShow.sort((a, b) => a.discount_percentage - b.discount_percentage);
+    newShow.sort((a, b) => a.discounted_amount - b.discounted_amount);
   }
   else if(e.target.id === "dHighToLow"){
-    newShow.sort((a, b) => b.discount_percentage - a.discount_percentage);
+    newShow.sort((a, b) => b.discounted_amount - a.discounted_amount);
   }
   setShow(newShow);
 }
@@ -95,19 +100,22 @@ let totalQuantity= data.categories.reduce((total, category)=> total + category.t
   return (
     
     <div className='container'>
-      <button onClick={() => setToggle(!toggle)} className="SortBtn">Sort</button>
-      <div style={{visibility: toggle ? "visible" : "hidden"}} className="SortOption">
-
-        <input  onClick={(e) => handleSort(e)} name="sort" id="pLowToHigh" type="radio"/>
-        <label htmlFor="pLowToHigh">Price - Low to High</label>
-        <input onClick={(e) => handleSort(e)} name="sort" id="pHighToLow" type="radio"/>
-        <label htmlFor="pHighToLow">Price - High to Low</label>
-
-        <input onClick={(e) => handleSort(e)} name="sort" id="dLowToHigh" type="radio"/>
-        <label htmlFor="dLowToHigh">Discount - Low to High</label>
-
-        <input onClick={(e) => handleSort(e)} name="sort" id="dHighToLow" type="radio"/>
-        <label htmlFor="dHighToLow">Discount - High to Low</label>        
+      <div className="row products-sort-row">
+        <p className="all-products-title">All Products</p>
+        <div className="sortBtn-container">
+      <button onClick={() => setToggle(!toggle)} className="sortBtn">Sort By <i class="arrow down"></i></button>
+      </div>
+     
+      <ul style={{visibility: toggle ? "visible" : "hidden"}} className="sortOption dropdown-list dropdown-style">
+        <li><input  onClick={(e) => handleSort(e)} name="sort" id="pLowToHigh" type="radio"/>
+        <label htmlFor="pLowToHigh" className="custom-radioBtn">Price - Low to High</label></li>
+        <li> <input onClick={(e) => handleSort(e)} name="sort" id="pHighToLow" type="radio"/>
+        <label htmlFor="pHighToLow">Price - High to Low</label></li>
+        <li><input onClick={(e) => handleSort(e)} name="sort" id="dLowToHigh" type="radio"/>
+        <label htmlFor="dLowToHigh">Discount - Low to High</label></li>
+        <li><input onClick={(e) => handleSort(e)} name="sort" id="dHighToLow" type="radio"/>
+        <label htmlFor="dHighToLow">Discount - High to Low</label>  </li>      
+      </ul>
       </div>
      <div className="row">
          <div className="col-lg-3 col-md-3 col-sm-12">
